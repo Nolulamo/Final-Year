@@ -1,0 +1,206 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Agriculture</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong|Lobster|Dancing Script">
+    <link rel="stylesheet" href="{% static 'final/css/index.css' %}">
+    <style>
+  *{
+    box-sizing: border-box;
+  }
+  .side-bar{
+      position: relative;
+      top: 5px;
+      height: 950px;
+      background-color: rgb(1, 34, 1);
+      width: 20%;
+      display: inline-block;
+    }
+  .canvases{
+    position: relative;
+    width: 75%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px auto;
+    text-align: center;
+  }
+  .canvases .myCanvas{
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+  }
+
+</style>
+</head>
+<body>
+  <div class="side-bar">
+    
+  </div>
+  <div class="canvases">
+    <div class="container-fluid pt-4 px-4">
+      <div class="row g-4">
+          <div class="col-sm-6 col-xl-3">
+              <div class="bg-success d-flex align-items-center justify-content-between p-2">
+                  <div class="ms-3">
+                      <p class="mb-2">Nitrogen Content</p>
+                      <h6 class="mb-0">Good: 60%</h6>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+              <div class="bg-success d-flex align-items-center justify-content-between p-2">
+                  <div class="ms-3">
+                      <p class="mb-2">Potasium content</p>
+                      <h6 class="mb-0">Okay: 50%</h6>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+              <div class="bg-success d-flex align-items-center justify-content-between p-2">
+                  <div class="ms-3">
+                      <p class="mb-2">Phosphorus</p>
+                      <h6 class="mb-0">Below average: 20%</h6>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+              <div class="bg-success d-flex align-items-center justify-content-between p-2">
+                  <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                  <div class="ms-3">
+                      <p class="mb-2">Moisture</p>
+                      <h6 class="mb-0">Dry: 10%</h6>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    <div class="myCanvas">
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="myCanvas">
+      <canvas id="myChart1"></canvas>
+    </div>
+    <div class="myCanvas">
+      <canvas id="myChart2"></canvas>
+    </div>
+    <div class="myCanvas">
+      <canvas id="myChart3"></canvas>
+    </div>
+    <div class="myCanvas">
+      <canvas id="myChart4"></canvas>
+    </div>
+    <div class="myCanvas">
+      <canvas id="myChart5"></canvas>
+    </div>
+    <div class="myCanvas">
+      <canvas id="myChart6"></canvas>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <script>
+      var endpoint = 'api/chat/data/'
+      var defaultData = []
+      var labels = []
+      $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function(data){
+          labels = data.labels
+          defaultData = data.default
+          const ctx = document.getElementById('myChart');
+          const ctx1 = document.getElementById('myChart1');
+          const ctx2 = document.getElementById('myChart2');
+          const ctx3 = document.getElementById('myChart3');
+          const ctx4 = document.getElementById('myChart4');
+          const ctx5 = document.getElementById('myChart5');
+          const ctx6 = document.getElementById('myChart6');
+
+          new Chart(ctx, {
+              type: 'line',
+              data: {
+                  labels: labels,
+                  datasets: [{
+                    label: '# of Votes',
+                    data: defaultData,
+                }]
+              }
+        })
+        new Chart(ctx1, {
+              type: 'line',
+              data: {
+                  labels: labels,
+                  datasets: [{
+                    label: '# of Votes',
+                    data: defaultData,
+                }]
+              }
+        })
+        new Chart(ctx2, {
+              type: 'line',
+              data: {
+                  labels: labels,
+                  datasets: [{
+                    label: '# of Votes',
+                    data: defaultData,
+                }]
+              }
+        })
+        new Chart(ctx3, {
+              type: 'line',
+              data: {
+                  labels: labels,
+                  datasets: [{
+                    label: '# of Votes',
+                    data: defaultData,
+                }]
+              }
+        })
+        new Chart(ctx4, {
+              type: 'line',
+              data: {
+                  labels: labels,
+                  datasets: [{
+                    label: '# of Votes',
+                    data: defaultData,
+                }]
+              }
+        })
+        new Chart(ctx5, {
+              type: 'line',
+              data: {
+                  labels: labels,
+                  datasets: [{
+                    label: '# of Votes',
+                    data: defaultData,
+                }]
+              }
+        })
+        new Chart(ctx6, {
+              type: 'line',
+              data: {
+                  labels: labels,
+                  datasets: [{
+                    label: '# of Votes',
+                    data: defaultData,
+                }]
+              }
+        })
+      }
+    })
+
+    </script>
+</body>
+</html>

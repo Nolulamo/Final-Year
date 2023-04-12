@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Agriculture</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong|Lobster|Dancing Script">
+    <link rel="stylesheet" href="{% static 'final/css/index.css' %}">
+    <style>
+        *{
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 100%;
+}
+.mynavbar{
+    background-color: rgb(1, 34, 1);
+    color: white;
+    width: 100%;
+}
+ul {
+    display: block;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0;
+}
+ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 15px 15px 15px 0px;
+
+}
+ul li h1{
+    font-size: 2.8vw;
+    font-family: Sofia;
+    font-style: italic;
+}
+ul li a{
+    font-size: 1.6vw;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ul li a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+    </style>
+</head>
+<body>
+
+    {% block header %}
+        <div class="mynavbar">
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li><h1>Smart agriculture</h1></li>
+                        <li><a href="#">Dashboard</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    {% endblock %}
+
+
+   {% block content %}
+   {% endblock %}
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {% block jquery %}
+    {% endblock %}
+</body>
+</html>
+    
